@@ -1,0 +1,140 @@
+{
+  "version": "0.1.0",
+  "name": "solami_rewards",
+  "instructions": [
+    {
+      "name": "initialize",
+      "docs": [
+        "Initialize the treasury account"
+      ],
+      "accounts": [
+        {
+          "name": "treasuryAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "transferWithTax",
+      "docs": [
+        "Transfer with 5% tax"
+      ],
+      "accounts": [
+        {
+          "name": "sender",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "senderToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "recipientToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "treasuryToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "treasuryAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "swapTaxedTokens",
+      "docs": [
+        "Swap taxed SOLAMI for SOL via Jupiter"
+      ],
+      "accounts": [
+        {
+          "name": "treasuryAccount",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claimRewards",
+      "docs": [
+        "Allow users to claim rewards"
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "userRewards",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "TreasuryAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "taxedAmount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserRewards",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pendingRewards",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "NoRewards",
+      "msg": "No rewards to claim"
+    }
+  ]
+}
