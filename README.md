@@ -34,3 +34,6 @@ A Solana Reflection Token is an SPL token that automatically redistributes a per
 - GameFi & NFT Rewards - Distriabute rewards in Play-to-Earn models
 - Auto-Liquidity Growth -Improve DEX liquidity
 
+# Contract
+- Twitter [DeFiMaxi](https://x.com/defai_maxi)
+- Telegram [rhettjel](https://t.me/rhettjel)
