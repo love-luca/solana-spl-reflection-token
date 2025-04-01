@@ -12,7 +12,7 @@ TREASURY_ACCOUNT = Keypair()
 SYS_PROGRAM_ID = Pubkey.from_string("11111111111111111111111111111111")
 
 # Load the IDL manually and convert to Idl object
-with open("solami_rewards.json") as f:
+with open("token_rewards.json") as f:
     idl = Idl.from_json(json.load(f))
 
 program = Program(idl, PROGRAM_ID, provider)
@@ -24,7 +24,7 @@ async def main():
     provider = Provider(client, wallet)
 
     # Load the IDL manually
-    with open("solami_rewards.json") as f:
+    with open("token_rewards.json") as f:
         idl = json.load(f)
 
     program = Program(idl, PROGRAM_ID, provider)
